@@ -25,6 +25,8 @@
                 <exclude name="**/*.git*/"/>
                 <exclude name="**/nbproject/**"/>
                 <exclude name="build.xml"/>
+                <exclude name="LICENSE"/>
+                <exclude name="ReaDME.md"/>
                 <exclude name="**/language/**"/>
                 <exclude name="**/media/**"/>
             </fileset>
