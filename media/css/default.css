@@ -1,0 +1,4 @@
+.audiojs-wrapper .player { display: flex; background: #535353;}
+.audiojs-wrapper .player .readmore { width: 25px; height: 28px; padding: 4px 6px; margin: 0px; float: left; overflow: hidden; border-left: 1px solid #000; background: url(../img/link-external.gif) center center no-repeat; opacity: 0.8; cursor: pointer}
+.audiojs {-webkit-box-shadow: none;-moz-box-shadow: none;-o-box-shadow: none;box-shadow: none;}
+.audiojs-wrapper ol.playlist li a {overflow: hidden;text-overflow: ellipsis;-o-text-overflow: ellipsis;white-space: nowrap;display:block; }
