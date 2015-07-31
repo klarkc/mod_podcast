@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Helper class for Podcast module
  * 
@@ -10,35 +11,35 @@
  * is derivative of works licensed under the GNU General Public License or
  * other free or open source software licenses.
  */
-class modPodcastHelper
-{
+class modPodcastHelper {
+
     /**
      * Retrieves the podcasts array
      *
      * @param array $params An object containing the module parameters
      * @access public
-     */    
-    public static function getPodcasts( $params )
-    {
-	$podcasts = array();
-	$db = JFactory::getDbo();
+     */
+    public static function getPodcasts($params) {
+        $podcasts = array();
+        $db = JFactory::getDbo();
 
-	$query = $db->getQuery(true);
-	$query->select('*');
-	$query->from('#__content');
-	$query->where('catid="'.$params->get('categories').'"');
-	$query->order('ordering ASC');
-	$query->setLimit($params->get('limit'));
+        $query = $db->getQuery(true);
+        $query->select('*');
+        $query->from('#__content');
+        $query->where('catid="' . $params->get('categories') . '"');
+        $query->order('ordering ASC');
+        $query->setLimit($params->get('limit'));
 
-	$db->setQuery((string)$query);
-	$articles = $db->loadObjectList();
+        $db->setQuery((string) $query);
+        $articles = $db->loadObjectList();
 
-	foreach($articles as $article) {
-		$podcast = modPodcastHelper::getPodcast($article);
-		if($podcast) $podcasts[] = $podcast;
-	}
+        foreach ($articles as $article) {
+            $podcast = modPodcastHelper::getPodcast($article);
+            if ($podcast)
+                $podcasts[] = $podcast;
+        }
 
-	return $podcasts;
+        return $podcasts;
     }
 
     /**
@@ -47,28 +48,31 @@ class modPodcastHelper
      * @param array $article An object containing the article parameters
      * @access public
      */
-    public static function getPodcast( $article )
-    {	
-	$podcast = array(
-			'url' => array(),
-			'readmore' => JRoute::_(ContentHelperRoute::getArticleRoute($article->id, $article->catid)),
-			'title' => $article->title,
-			'article_id' => $article->id,
-			'catid' => $article->catid,
-			'created' => $article->created,
-			'created_by' => $article->created_by,
-			'created_by_alias' => $article->created_by_alias,
-			'modified' => $article->modified,
-			'modified_by' => $article->modified_by,
-			'images' => $article->images,
-		);
-	if(preg_match('/{podcast}.*{\/podcast}/', $article->fulltext, $urls)>0) {
-		$urls = str_replace('{podcast}', '', $urls);
-		$urls = str_replace('{/podcast}', '', $urls);
-		$podcast['url'] = $urls;
-		return $podcast;
-	} else {
-		return null;
-	}
+    public static function getPodcast($article) {
+        if ($article->state != 1)
+            return null;
+        $text = empty($article->fulltext) ? $article->introtext : $article->fulltext;
+        if (preg_match('/{podcast}.*{\/podcast}/', $text, $urls) > 0) {
+            $podcast = array(
+                'url' => array(),
+                'readmore' => JRoute::_(ContentHelperRoute::getArticleRoute($article->id, $article->catid)),
+                'title' => $article->title,
+                'article_id' => $article->id,
+                'catid' => $article->catid,
+                'created' => $article->created,
+                'created_by' => $article->created_by,
+                'created_by_alias' => $article->created_by_alias,
+                'modified' => $article->modified,
+                'modified_by' => $article->modified_by,
+                'images' => $article->images,
+            );
+            $urls = str_replace('{podcast}', '', $urls);
+            $urls = str_replace('{/podcast}', '', $urls);
+            $podcast['url'] = $urls;
+            return $podcast;
+        } else {
+            return null;
+        }
     }
+
 }

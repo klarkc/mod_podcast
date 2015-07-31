@@ -2,7 +2,7 @@
 <extension type="module" version="3.2.0" client="site" method="upgrade">
     <name>Podcast</name>
     <author>KlarkC</author>
-    <version>v1.0.1</version>
+    <version>v1.0.2</version>
     <description>MOD_PODCAST_PROJECT_DESCRIPTION</description>
     <files>
         <filename>mod_podcast.xml</filename>
