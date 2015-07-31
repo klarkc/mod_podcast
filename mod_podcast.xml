@@ -23,13 +23,13 @@
     <config>
         <fields name="params">
             <fieldset name="basic">
-                <field
-                    name="categories"
-                    type="text"
-                    size="30"
-                    label="MOD_PODCAST_FIELD_CATEGORIES_LABEL"
+                <field 
+                    name="categories" 
+                    type="category" 
+                    extension="com_content" 
+                    label="MOD_PODCAST_FIELD_CATEGORIES_LABEL" 
                     description="MOD_PODCAST_FIELD_CATEGORIES_DESC"
-                    required="true" />
+                    required="true"                />
                 <field
                     name="limit"
                     type="text"
@@ -37,6 +37,21 @@
                     label="MOD_PODCAST_FIELD_LIMIT_LABEL"
                     description="MOD_PODCAST_FIELD_LIMIT_DESC"
                     required="true" />
+                <field
+                    name="more_title"
+                    type="text"
+                    size="30"
+                    label="MOD_PODCAST_FIELD_MORE_TITLE_LABEL"
+                    default="MOD_PODCAST_FIELD_MORE_TITLE_DEFAULT"
+                    required="false" />
+                <field
+                    name="more_url"
+                    type="text"
+                    size="30"
+                    label="MOD_PODCAST_FIELD_MORE_URL_LABEL"
+                    description="MOD_PODCAST_FIELD_MORE_URL_DESC"
+                    default=""
+                    required="false" />
             </fieldset>
             <fieldset
                 name="advanced">

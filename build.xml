@@ -16,25 +16,25 @@
     </target>
     <target name="run-ftp" description="Uploading files to the various places">
         <!-- Create Directories -->
-        <ftp action="mkdir" server="${host}" userid="${user}" password="${password}" verbose="true" passive="true" remotedir="${remote.directory}/modules/${ant.project.name}" />
-        <ftp action="mkdir" server="${host}" userid="${user}" password="${password}" verbose="true" passive="true" remotedir="${remote.directory}/media/${ant.project.name}" />
+        <ftp action="mkdir" server="${host}" userid="${user}" password="${password}" verbose="true" passive="true" remotedir="${initialDirectory}/modules/${ant.project.name}" />
+        <ftp action="mkdir" server="${host}" userid="${user}" password="${password}" verbose="true" passive="true" remotedir="${initialDirectory}/media/${ant.project.name}" />
         <!-- Copy Files -->
-        <ftp server="${host}" userid="${user}" password="${password}" verbose="true" passive="true" remotedir="${remote.directory}/modules/${ant.project.name}">
-            <fileset dir="src">
+        <ftp server="${host}" userid="${user}" password="${password}" verbose="true" passive="true" remotedir="${initialDirectory}/modules/${ant.project.name}">
+            <fileset dir=".">
                 <exclude name="**/*.svn/"/>
                 <exclude name="**/*.git*/"/>
                 <exclude name="**/nbproject/**"/>
                 <exclude name="build.xml"/>
                 <exclude name="LICENSE"/>
-                <exclude name="Readme.md"/>
+                <exclude name="README.md"/>
                 <exclude name="**/language/**"/>
                 <exclude name="**/media/**"/>
             </fileset>
         </ftp>
-        <ftp server="${host}" userid="${user}" password="${password}" verbose="true" passive="true" remotedir="${remote.directory}/language">
+        <ftp server="${host}" userid="${user}" password="${password}" verbose="true" passive="true" remotedir="${initialDirectory}/language">
             <fileset dir="language"></fileset>
         </ftp>
-        <ftp server="${host}" userid="${user}" password="${password}" verbose="true" passive="true" remotedir="${remote.directory}/media/${ant.project.name}">
+        <ftp server="${host}" userid="${user}" password="${password}" verbose="true" passive="true" remotedir="${initialDirectory}/media/${ant.project.name}">
             <fileset dir="media"></fileset>
         </ftp>
     </target> 

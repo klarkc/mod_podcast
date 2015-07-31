@@ -15,8 +15,17 @@
 defined('_JEXEC') or die;
 // Include the syndicate functions only once
 require_once( dirname(__FILE__) . '/helper.php' );
+require_once (JPATH_SITE . '/components/com_content/helpers/route.php'); 
  
 $podcasts = modPodcastHelper::getPodcasts($params);
+
+$more_url = $params->get('more_url');
+if($more_url=="") {
+    $categories = $params->get('categories');
+    $more_url = JRoute::_(ContentHelperRoute::getCategoryRoute($categories));
+}
+
+$more_title = $params->get('more_title');
 
 require( JModuleHelper::getLayoutPath('mod_podcast'));
 ?>
