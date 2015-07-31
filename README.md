@@ -12,5 +12,5 @@ A Joomla podcast player module for related content in articles
 * Go to Extensions -> Module Manager, click on Podcast module
 * Insert the categories of joomla articles where your podcast articles will be stored
 * Set the limit of podcasts in the module
-* Create articles, and use the tag podcast with url to the audio file, eg: `{podcast}http://example.com/link_to_audio_file.p3{/podcast}`.
+* Create articles, and use the tag podcast with url to the audio file, eg: `{podcast}http://example.com/link_to_audio_file.mp3{/podcast}`.
 * The plugin is not finished, so you need manually hide the podcast tag in your article (use your editor or css `display: none`).
