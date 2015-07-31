@@ -42,7 +42,7 @@
                     type="text"
                     size="30"
                     label="MOD_PODCAST_FIELD_MORE_TITLE_LABEL"
-                    default="MOD_PODCAST_FIELD_MORE_TITLE_DEFAULT"
+                    default="More Podcasts"
                     required="true" />
                 <field
                     name="more_url"
