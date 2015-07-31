@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension type="module" version="3.1.0" client="site" method="upgrade">
+<extension type="module" version="3.2.0" client="site" method="upgrade">
     <name>Podcast</name>
     <author>KlarkC</author>
-    <version>1.0.0</version>
+    <version>v1.0.1</version>
     <description>MOD_PODCAST_PROJECT_DESCRIPTION</description>
     <files>
         <filename>mod_podcast.xml</filename>
@@ -32,11 +32,13 @@
                     required="true"                />
                 <field
                     name="limit"
-                    type="text"
-                    size="30"
+                    type="number" 
+                    default="5"
                     label="MOD_PODCAST_FIELD_LIMIT_LABEL"
                     description="MOD_PODCAST_FIELD_LIMIT_DESC"
-                    required="true" />
+                    min="0"
+                    max="100"
+                    step="1"/>
                 <field
                     name="more_title"
                     type="text"
